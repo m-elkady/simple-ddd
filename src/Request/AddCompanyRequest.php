@@ -35,8 +35,9 @@ class AddCompanyRequest extends AbstractRequest
     {
         $validator = Validation::createValidator();
         $errors = $validator->validate((array)$this , $this->getConstrains());
+
         if (count($errors)) {
-            throw new BadRequestHttpException($this->getValidationErrors($errors));
+            throw new BadRequestHttpException($this->getValidationErrors($errors),null,400);
         }
         return true;
     }
