@@ -21,7 +21,7 @@ class CompaniesController extends AbstractController
     public function add(Request $request)
     {
         $rq = $this->getRequest($request, AddCompanyRequest::class);
-        return $this->returnResponse($this->companyService->add($rq),'php');
+        return $this->returnResponse($this->companyService->add($rq));
     }
 
 

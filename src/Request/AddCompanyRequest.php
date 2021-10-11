@@ -14,10 +14,16 @@ class AddCompanyRequest extends AbstractRequest
 {
      public string $name;
 
+     public string $url;
+
     function getConstrains(): Assert\Collection
     {
         return new Assert\Collection([
-            'name' => [new Assert\NotBlank(), new Assert\NotNull()],
+            'fields' => [
+                'name' => [new Assert\NotBlank(), new Assert\NotNull()],
+            ],
+            'allowExtraFields' => true,
+
         ]);
     }
 
