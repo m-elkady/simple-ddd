@@ -7,7 +7,7 @@ use Symfony\Component\Validator\ConstraintViolation;
 
 abstract class AbstractRequest
 {
-    abstract public function validate();
+    abstract public function validate():bool;
 
     public function getValidationErrors($errors): string
     {

@@ -4,9 +4,7 @@ namespace App\Controller;
 
 use App\Request\AddCompanyRequest;
 use App\Service\CompanyService;
-use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\HttpFoundation\Request;
-use Symfony\Component\Validator\ConstraintViolation;
 
 class CompaniesController extends AbstractController
 {
@@ -20,9 +18,10 @@ class CompaniesController extends AbstractController
         $this->companyService = $companyService;
     }
 
-    public function add(Request $request): JsonResponse
+    public function add(Request $request)
     {
-        return $this->json($this->companyService->add($request));
+        $rq = $this->getRequest($request, AddCompanyRequest::class);
+        return $this->returnResponse($this->companyService->add($rq),'php');
     }
 
 

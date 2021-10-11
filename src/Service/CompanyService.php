@@ -4,6 +4,7 @@ namespace App\Service;
 
 use App\Repository\CompanyRepository;
 use App\Request\AddCompanyRequest;
+use App\Response\AddCompanyResponse;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
 
@@ -19,16 +20,17 @@ class CompanyService
      * @param Request $request
      * @return array
      */
-    function add(Request $request): array
+    function add(AddCompanyRequest $request): AddCompanyResponse
     {
-        $request = (new AddCompanyRequest($request))->validate();
         $company = $this->repository->save($request);
 
         if (!$company) {
             throw new NotFoundHttpException('Saving Company Error');
         }
-
-        return ['message' => 'Added successfully', 'company' => $company];
+        $res = new AddCompanyResponse();
+        $res->message =  "Added successfully";
+        $res->company = $company;
+        return $res;
     }
 
 }

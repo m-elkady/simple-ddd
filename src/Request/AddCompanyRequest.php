@@ -12,20 +12,12 @@ use Symfony\Component\Validator\Validation;
 
 class AddCompanyRequest extends AbstractRequest
 {
-    /**
-     * @var Request
-     */
-    private $request;
-
-    public function __construct(Request $request)
-    {
-        $this->request = $request;
-    }
+     public string $name;
 
     function getConstrains(): Assert\Collection
     {
         return new Assert\Collection([
-            'name' => [new Assert\NotBlank(), new Assert\NotBlank()],
+            'name' => [new Assert\NotBlank(), new Assert\NotNull()],
         ]);
     }
 
@@ -33,14 +25,13 @@ class AddCompanyRequest extends AbstractRequest
      * @return Request
      * @throws BadRequestHttpException
      */
-    public function validate(): Request
+    public function validate(): bool
     {
         $validator = Validation::createValidator();
-        $errors = $validator->validate($this->request->toArray(), $this->getConstrains());
+        $errors = $validator->validate((array)$this , $this->getConstrains());
         if (count($errors)) {
             throw new BadRequestHttpException($this->getValidationErrors($errors));
         }
-
-        return $this->request;
+        return true;
     }
 }
