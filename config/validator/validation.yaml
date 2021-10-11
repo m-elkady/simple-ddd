@@ -1,0 +1,5 @@
+App\Entity\Company:
+  properties:
+    name:
+      - NotBlank: ~
+      - NotNull: ~

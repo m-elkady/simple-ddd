@@ -1,0 +1,4 @@
+companiesAdding:
+    path: /api/companies/add
+    controller: App\Controller\CompaniesController::add
+    methods: GET
