@@ -5,7 +5,7 @@ namespace App\Repository;
 use App\Entity\Company;
 use App\Request\AddCompanyRequest;
 
-class CompanyRepository extends AbstractRepository
+class CompanyRepository
 {
 
     public function save(AddCompanyRequest $request): Company

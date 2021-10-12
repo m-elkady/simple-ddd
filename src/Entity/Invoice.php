@@ -7,27 +7,22 @@ class Invoice
     /**
      * @var int
      */
-    private $id;
-
-    /**
-     * @var int
-     */
-    private $quantity;
+    private int $id;
 
     /**
      * @var string $item
      */
-    private $item;
+    private string $item;
 
     /**
-     * @var CompanyDebitor
+     * @var int $companyId
      */
-    private $companyDebitor;
+    private int $companyId;
 
     /**
      * @return int
      */
-    public function getId()
+    public function getId(): int
     {
         return $this->id;
     }
@@ -41,22 +36,6 @@ class Invoice
     }
 
     /**
-     * @return mixed
-     */
-    public function getQuantity()
-    {
-        return $this->quantity;
-    }
-
-    /**
-     * @param mixed $quantity
-     */
-    public function setQuantity($quantity): void
-    {
-        $this->quantity = $quantity;
-    }
-
-    /**
      * @return string
      */
     public function getItem(): string
@@ -65,7 +44,7 @@ class Invoice
     }
 
     /**
-     * @param mixed $item
+     * @param string $item
      */
     public function setItem(string $item): void
     {
@@ -73,19 +52,52 @@ class Invoice
     }
 
     /**
-     * @return mixed
+     * @return float
      */
-    public function getCompanyDebitor(): CompanyDebitor
+    public function getAmount(): float
     {
-        return $this->companyDebitor;
+        return $this->amount;
     }
 
     /**
-     * @param mixed $companyDebitor
+     * @param float $amount
      */
-    public function setCompanyDebitor(CompanyDebitor $companyDebitor): void
+    public function setAmount(float $amount): void
     {
-        $this->companyDebitor = $companyDebitor;
+        $this->amount = $amount;
+    }
+
+    /**
+     * @return int
+     */
+    public function getCompanyId(): int
+    {
+        return $this->companyId;
+    }
+
+    /**
+     * @param int $companyId
+     */
+    public function setCompanyId(int $companyId): void
+    {
+        $this->companyId = $companyId;
+    }
+
+
+    /**
+     * @return int
+     */
+    public function getDebitorId(): int
+    {
+        return $this->debitorId;
+    }
+
+    /**
+     * @param int $debitorId
+     */
+    public function setDebitorId(int $debitorId): void
+    {
+        $this->debitorId = $debitorId;
     }
 
 }

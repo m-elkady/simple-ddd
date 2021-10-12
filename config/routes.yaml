@@ -1,4 +1,4 @@
 companiesAdding:
     path: /api/companies/add
-    controller: App\Controller\CompaniesController::add
+    controller: App\Controller\CompanyController::add
     methods: GET

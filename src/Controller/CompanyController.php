@@ -6,7 +6,7 @@ use App\Request\AddCompanyRequest;
 use App\Service\CompanyService;
 use Symfony\Component\HttpFoundation\Request;
 
-class CompaniesController extends AbstractController
+class CompanyController extends AbstractController
 {
     /**
      * @var CompanyService
@@ -20,8 +20,8 @@ class CompaniesController extends AbstractController
 
     public function add(Request $request)
     {
-        $rq = $this->getRequest($request, AddCompanyRequest::class);
-        return $this->returnResponse($this->companyService->add($rq));
+        $addCompanyRequest = $this->getRequest($request, AddCompanyRequest::class);
+        return $this->returnResponse($this->companyService->add($addCompanyRequest));
     }
 
 

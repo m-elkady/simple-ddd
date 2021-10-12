@@ -27,6 +27,7 @@ class CompanyService
         if (!$company) {
             throw new NotFoundHttpException('Saving Company Error');
         }
+
         $res = new AddCompanyResponse();
         $res->message =  "Added successfully";
         $res->company = $company;
